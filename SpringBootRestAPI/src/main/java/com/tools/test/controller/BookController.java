@@ -29,8 +29,8 @@ public class BookController {
 	 * this.test.getAllBooks(); }
 	 */
 
+	// Get All Record Through HTTP Message
 	@GetMapping("/books")
-
 	public ResponseEntity<List<Book>> getAllBooks() {
 		List<Book> list = test.getAllBooks();
 		if (list.size() <= 0) {
@@ -38,18 +38,20 @@ public class BookController {
 		}
 		return ResponseEntity.of(Optional.of(list));
 	}
-	
-	/*Get Book By id Without HTTP Message
-	 * @GetMapping("/books/{id}")
-	public Book getBookById(@PathVariable("id") Integer id) {
-		return test.getBookById(id);
-	}*/
+
+	/*
+	 * Get Book By id Without HTTP Message
+	 * 
+	 * @GetMapping("/books/{id}") public Book getBookById(@PathVariable("id")
+	 * Integer id) { return test.getBookById(id); }
+	 */
+
+	// Get Reocrd By ID Through HTTP Message
 	@GetMapping("/books/{id}")
 	public ResponseEntity<Book> getBookById(@PathVariable("id") Integer id) {
-		
+
 		Book book = test.getBookById(id);
-		if(book != null)
-		{
+		if (book != null) {
 			return ResponseEntity.of(Optional.of(book));
 		}
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
@@ -62,6 +64,7 @@ public class BookController {
 	 * Book b = this.test.createBook(book); System.out.println(b); return book; }
 	 */
 
+	// Create Record Through HHTP Message
 	@PostMapping("/createBook")
 	public ResponseEntity<Book> createBook(@RequestBody Book book) {
 		Book b = null;
@@ -81,6 +84,7 @@ public class BookController {
 	 * Integer bookId) { this.test.deleteBook(bookId); }
 	 */
 
+	// Delete Record Through HTTP Message
 	@DeleteMapping("/books/{id}")
 	public ResponseEntity<Void> deleteBook(@PathVariable("id") Integer bookId) {
 
@@ -93,12 +97,15 @@ public class BookController {
 		}
 	}
 
-	/*Update Book Without HTTP Message
-	 * @PutMapping("/books/{bookId}")
-	public Book updateBook(@RequestBody Book book, @PathVariable("bookId") Integer bookId) {
-		this.test.updateBook(book, bookId);
-		return book;
-	}*/
+	/*
+	 * Update Book Without HTTP Message
+	 * 
+	 * @PutMapping("/books/{bookId}") public Book updateBook(@RequestBody Book
+	 * book, @PathVariable("bookId") Integer bookId) { this.test.updateBook(book,
+	 * bookId); return book; }
+	 */
+
+	// Update Reocrd Through HTTP Message
 	@PutMapping("/books/{bookId}")
 	public ResponseEntity<Book> updateBook(@RequestBody Book book, @PathVariable("bookId") Integer bookId) {
 		try {
@@ -108,6 +115,6 @@ public class BookController {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
-		
+
 	}
 }
