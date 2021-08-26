@@ -43,15 +43,12 @@ public class Test {
 	public void deleteBook(Integer bookId) {
 		books = books.stream().filter(book -> book.getBookId() != bookId).collect(Collectors.toList());
 	}
-	
+
 	// Update Book
-	
-	public void updateBook(Book book, Integer bookId)
-	{
-		books =  books.stream().map(b->
-		{
-			if(b.getBookId()==bookId)
-			{
+
+	public void updateBook(Book book, Integer bookId) {
+		books = books.stream().map(b -> {
+			if (b.getBookId() == bookId) {
 				b.setAuthor(book.getAuthor());
 				b.setBookName(book.getBookName());
 				b.setPrice(book.getPrice());
