@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="installedFeatures">
+		<item value="io.emmet.eclipse:1.0.0.201401132323"/>
 		<item value="net.mihai-nita.ansicon:1.4.4.202102080044"/>
 		<item value="org.eclipse.datatools.connectivity.feature:1.14.102.201911250848"/>
 		<item value="org.eclipse.datatools.doc.user:1.14.102.201911250848"/>
