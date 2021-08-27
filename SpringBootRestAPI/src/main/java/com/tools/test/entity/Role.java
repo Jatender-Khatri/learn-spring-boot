@@ -4,14 +4,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer roleId;
-	
+
 	private String roleName;
+	@OneToOne(mappedBy = "role")
+	@JsonBackReference
+	private Users user;
 
 	/**
 	 * 
@@ -57,6 +63,20 @@ public class Role {
 	 */
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
+	}
+
+	/**
+	 * @return the user
+	 */
+	public Users getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(Users user) {
+		this.user = user;
 	}
 
 	@Override

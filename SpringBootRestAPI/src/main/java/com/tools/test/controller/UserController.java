@@ -10,7 +10,7 @@ import com.tools.test.dao.UserReporitary;
 import com.tools.test.entity.Users;
 
 @Component
-public class TestController {
+public class UserController {
 
 	@Autowired
 	private UserReporitary reporitary;

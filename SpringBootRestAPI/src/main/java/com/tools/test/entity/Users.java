@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Users {
 	@Id
@@ -19,6 +21,7 @@ public class Users {
 
 	private String email;
 	@OneToOne(cascade = CascadeType.ALL)
+	@JsonManagedReference
 	private Role role;
 
 	/**

@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tools.test.controller.TestController;
+import com.tools.test.controller.UserController;
 import com.tools.test.entity.Users;
 
 @RestController
 public class UserAPI {
 	@Autowired
 	
-	private TestController controller;
+	private UserController controller;
 	@PostMapping("/user/create")
 	public ResponseEntity<Users> createUsers(@RequestBody Users user)
 	{
