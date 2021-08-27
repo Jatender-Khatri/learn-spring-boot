@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.tools.test.hepler.FileUploadHelper;
 
@@ -17,18 +18,17 @@ public class FileUploadController {
 
 	@PostMapping("/upload-file")
 	public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
-		if(file.isEmpty())
-		{
+		if (file.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Request Must contain Body");
 		}
-		if(!file.getContentType().equals("image/jpeg"))
-		{
+		if (!file.getContentType().equals("image/jpeg")) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Only JPEG Type Content is Allowed");
 		}
-		
-		boolean f= fileUploadHelper.uploadFile(file);
-		if(f)
-		{
+
+		boolean f = fileUploadHelper.uploadFile(file);
+		if (f) {
+			//return ResponseEntity.ok(ServletUriComponentsBuilder.fromCurrentContextPath().path("/image/")
+					//.path(file.getContentType()).toUriString());
 			return ResponseEntity.ok("File is Successfully Uploaded");
 		}
 		return ResponseEntity.ok("Working");
