@@ -52,4 +52,10 @@ public class TestController {
 		m.addAttribute("subTitle", LocalDateTime.now().toString());
 		return "service";
 	}
+
+	@GetMapping("/base")
+	public String newAbout() {
+		System.out.println("This is the New About Method");
+		return "aboutSection";
+	}
 }
