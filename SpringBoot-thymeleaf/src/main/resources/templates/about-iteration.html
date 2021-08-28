@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Iteration in Java</title>
+</head>
+<body>
+	<h1>This is the Iteration</h1>
+	
+	<h1 th:text="${name}"></h1>
+	
+	<ul>
+		<li th:each = " n : ${name}">
+			<span th:text="${n}"></span>
+		</li>
+	</ul>
+	
+	<ul>
+		<li th:each = " n,status : ${name}">
+			<!-- <span th:text= "${status.size(n)}"></span> -->
+			<span th:style= "${status.even} ? 'font-weight:bold' : ' '" th:text="${status.index} + ' ' + ${n}"></span><br>
+		</li>
+	</ul>
+</body>
+</html>
