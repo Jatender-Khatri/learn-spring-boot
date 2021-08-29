@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+
+body {
+	background: olive;
+}
+
+.container {
+	background: #ffffff;
+	padding: 20px;
+}
+
+.jatender {
+	border-radius: 50%;
+}
